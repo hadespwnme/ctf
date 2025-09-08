@@ -1,0 +1,389 @@
+
+chal.out:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    rsp,0x8
+    1008:	48 8b 05 d9 2f 00 00 	mov    rax,QWORD PTR [rip+0x2fd9]        # 3fe8 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   rax,rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   rax
+    1016:	48 83 c4 08          	add    rsp,0x8
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 92 2f 00 00    	push   QWORD PTR [rip+0x2f92]        # 3fb8 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	f2 ff 25 93 2f 00 00 	bnd jmp QWORD PTR [rip+0x2f93]        # 3fc0 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102d:	0f 1f 00             	nop    DWORD PTR [rax]
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   0x0
+    1039:	f2 e9 e1 ff ff ff    	bnd jmp 1020 <_init+0x20>
+    103f:	90                   	nop
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	68 01 00 00 00       	push   0x1
+    1049:	f2 e9 d1 ff ff ff    	bnd jmp 1020 <_init+0x20>
+    104f:	90                   	nop
+
+Disassembly of section .plt.got:
+
+0000000000001050 <__cxa_finalize@plt>:
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	f2 ff 25 9d 2f 00 00 	bnd jmp QWORD PTR [rip+0x2f9d]        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    105b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+Disassembly of section .plt.sec:
+
+0000000000001060 <putchar@plt>:
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	f2 ff 25 5d 2f 00 00 	bnd jmp QWORD PTR [rip+0x2f5d]        # 3fc8 <putchar@GLIBC_2.2.5>
+    106b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+0000000000001070 <printf@plt>:
+    1070:	f3 0f 1e fa          	endbr64
+    1074:	f2 ff 25 55 2f 00 00 	bnd jmp QWORD PTR [rip+0x2f55]        # 3fd0 <printf@GLIBC_2.2.5>
+    107b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+
+Disassembly of section .text:
+
+0000000000001080 <_start>:
+    1080:	f3 0f 1e fa          	endbr64
+    1084:	31 ed                	xor    ebp,ebp
+    1086:	49 89 d1             	mov    r9,rdx
+    1089:	5e                   	pop    rsi
+    108a:	48 89 e2             	mov    rdx,rsp
+    108d:	48 83 e4 f0          	and    rsp,0xfffffffffffffff0
+    1091:	50                   	push   rax
+    1092:	54                   	push   rsp
+    1093:	45 31 c0             	xor    r8d,r8d
+    1096:	31 c9                	xor    ecx,ecx
+    1098:	48 8d 3d 66 01 00 00 	lea    rdi,[rip+0x166]        # 1205 <main>
+    109f:	ff 15 33 2f 00 00    	call   QWORD PTR [rip+0x2f33]        # 3fd8 <__libc_start_main@GLIBC_2.34>
+    10a5:	f4                   	hlt
+    10a6:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+    10ad:	00 00 00 
+
+00000000000010b0 <deregister_tm_clones>:
+    10b0:	48 8d 3d 69 2f 00 00 	lea    rdi,[rip+0x2f69]        # 4020 <__TMC_END__>
+    10b7:	48 8d 05 62 2f 00 00 	lea    rax,[rip+0x2f62]        # 4020 <__TMC_END__>
+    10be:	48 39 f8             	cmp    rax,rdi
+    10c1:	74 15                	je     10d8 <deregister_tm_clones+0x28>
+    10c3:	48 8b 05 16 2f 00 00 	mov    rax,QWORD PTR [rip+0x2f16]        # 3fe0 <_ITM_deregisterTMCloneTable@Base>
+    10ca:	48 85 c0             	test   rax,rax
+    10cd:	74 09                	je     10d8 <deregister_tm_clones+0x28>
+    10cf:	ff e0                	jmp    rax
+    10d1:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+    10d8:	c3                   	ret
+    10d9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+00000000000010e0 <register_tm_clones>:
+    10e0:	48 8d 3d 39 2f 00 00 	lea    rdi,[rip+0x2f39]        # 4020 <__TMC_END__>
+    10e7:	48 8d 35 32 2f 00 00 	lea    rsi,[rip+0x2f32]        # 4020 <__TMC_END__>
+    10ee:	48 29 fe             	sub    rsi,rdi
+    10f1:	48 89 f0             	mov    rax,rsi
+    10f4:	48 c1 ee 3f          	shr    rsi,0x3f
+    10f8:	48 c1 f8 03          	sar    rax,0x3
+    10fc:	48 01 c6             	add    rsi,rax
+    10ff:	48 d1 fe             	sar    rsi,1
+    1102:	74 14                	je     1118 <register_tm_clones+0x38>
+    1104:	48 8b 05 e5 2e 00 00 	mov    rax,QWORD PTR [rip+0x2ee5]        # 3ff0 <_ITM_registerTMCloneTable@Base>
+    110b:	48 85 c0             	test   rax,rax
+    110e:	74 08                	je     1118 <register_tm_clones+0x38>
+    1110:	ff e0                	jmp    rax
+    1112:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+    1118:	c3                   	ret
+    1119:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000000001120 <__do_global_dtors_aux>:
+    1120:	f3 0f 1e fa          	endbr64
+    1124:	80 3d f3 2e 00 00 00 	cmp    BYTE PTR [rip+0x2ef3],0x0        # 401e <completed.0>
+    112b:	75 2b                	jne    1158 <__do_global_dtors_aux+0x38>
+    112d:	55                   	push   rbp
+    112e:	48 83 3d c2 2e 00 00 	cmp    QWORD PTR [rip+0x2ec2],0x0        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1135:	00 
+    1136:	48 89 e5             	mov    rbp,rsp
+    1139:	74 0c                	je     1147 <__do_global_dtors_aux+0x27>
+    113b:	48 8b 3d c6 2e 00 00 	mov    rdi,QWORD PTR [rip+0x2ec6]        # 4008 <__dso_handle>
+    1142:	e8 09 ff ff ff       	call   1050 <__cxa_finalize@plt>
+    1147:	e8 64 ff ff ff       	call   10b0 <deregister_tm_clones>
+    114c:	c6 05 cb 2e 00 00 01 	mov    BYTE PTR [rip+0x2ecb],0x1        # 401e <completed.0>
+    1153:	5d                   	pop    rbp
+    1154:	c3                   	ret
+    1155:	0f 1f 00             	nop    DWORD PTR [rax]
+    1158:	c3                   	ret
+    1159:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000000001160 <frame_dummy>:
+    1160:	f3 0f 1e fa          	endbr64
+    1164:	e9 77 ff ff ff       	jmp    10e0 <register_tm_clones>
+
+0000000000001169 <_Z3eorh>:
+    1169:	f3 0f 1e fa          	endbr64
+    116d:	55                   	push   rbp
+    116e:	48 89 e5             	mov    rbp,rsp
+    1171:	89 f8                	mov    eax,edi
+    1173:	88 45 fc             	mov    BYTE PTR [rbp-0x4],al
+    1176:	0f b6 45 fc          	movzx  eax,BYTE PTR [rbp-0x4]
+    117a:	83 f0 69             	xor    eax,0x69
+    117d:	5d                   	pop    rbp
+    117e:	c3                   	ret
+
+000000000000117f <_Z3inch>:
+    117f:	f3 0f 1e fa          	endbr64
+    1183:	55                   	push   rbp
+    1184:	48 89 e5             	mov    rbp,rsp
+    1187:	89 f8                	mov    eax,edi
+    1189:	88 45 fc             	mov    BYTE PTR [rbp-0x4],al
+    118c:	0f b6 05 8c 2e 00 00 	movzx  eax,BYTE PTR [rip+0x2e8c]        # 401f <globalvar>
+    1193:	0f be c0             	movsx  eax,al
+    1196:	48 98                	cdqe
+    1198:	48 8d 0d 71 2e 00 00 	lea    rcx,[rip+0x2e71]        # 4010 <flag>
+    119f:	0f b6 55 fc          	movzx  edx,BYTE PTR [rbp-0x4]
+    11a3:	88 14 08             	mov    BYTE PTR [rax+rcx*1],dl
+    11a6:	0f b6 05 72 2e 00 00 	movzx  eax,BYTE PTR [rip+0x2e72]        # 401f <globalvar>
+    11ad:	83 c0 01             	add    eax,0x1
+    11b0:	88 05 69 2e 00 00    	mov    BYTE PTR [rip+0x2e69],al        # 401f <globalvar>
+    11b6:	0f b6 05 62 2e 00 00 	movzx  eax,BYTE PTR [rip+0x2e62]        # 401f <globalvar>
+    11bd:	0f be c0             	movsx  eax,al
+    11c0:	48 98                	cdqe
+    11c2:	48 8d 15 47 2e 00 00 	lea    rdx,[rip+0x2e47]        # 4010 <flag>
+    11c9:	0f b6 04 10          	movzx  eax,BYTE PTR [rax+rdx*1]
+    11cd:	5d                   	pop    rbp
+    11ce:	c3                   	ret
+
+00000000000011cf <_Z3rtrh>:
+    11cf:	f3 0f 1e fa          	endbr64
+    11d3:	55                   	push   rbp
+    11d4:	48 89 e5             	mov    rbp,rsp
+    11d7:	89 f8                	mov    eax,edi
+    11d9:	88 45 fc             	mov    BYTE PTR [rbp-0x4],al
+    11dc:	0f b6 45 fc          	movzx  eax,BYTE PTR [rbp-0x4]
+    11e0:	d0 e8                	shr    al,1
+    11e2:	89 c2                	mov    edx,eax
+    11e4:	0f b6 45 fc          	movzx  eax,BYTE PTR [rbp-0x4]
+    11e8:	c1 e0 07             	shl    eax,0x7
+    11eb:	09 d0                	or     eax,edx
+    11ed:	5d                   	pop    rbp
+    11ee:	c3                   	ret
+
+00000000000011ef <_Z3offh>:
+    11ef:	f3 0f 1e fa          	endbr64
+    11f3:	55                   	push   rbp
+    11f4:	48 89 e5             	mov    rbp,rsp
+    11f7:	89 f8                	mov    eax,edi
+    11f9:	88 45 fc             	mov    BYTE PTR [rbp-0x4],al
+    11fc:	0f b6 45 fc          	movzx  eax,BYTE PTR [rbp-0x4]
+    1200:	83 c0 0f             	add    eax,0xf
+    1203:	5d                   	pop    rbp
+    1204:	c3                   	ret
+
+0000000000001205 <main>:
+    1205:	f3 0f 1e fa          	endbr64
+    1209:	55                   	push   rbp
+    120a:	48 89 e5             	mov    rbp,rsp
+    120d:	48 83 ec 10          	sub    rsp,0x10
+    1211:	0f b6 05 07 2e 00 00 	movzx  eax,BYTE PTR [rip+0x2e07]        # 401f <globalvar>
+    1218:	0f be c0             	movsx  eax,al
+    121b:	48 98                	cdqe
+    121d:	48 8d 15 ec 2d 00 00 	lea    rdx,[rip+0x2dec]        # 4010 <flag>
+    1224:	0f b6 04 10          	movzx  eax,BYTE PTR [rax+rdx*1]
+    1228:	0f b6 c0             	movzx  eax,al
+    122b:	89 c7                	mov    edi,eax
+    122d:	e8 bd ff ff ff       	call   11ef <_Z3offh>
+    1232:	0f b6 c0             	movzx  eax,al
+    1235:	89 c7                	mov    edi,eax
+    1237:	e8 2d ff ff ff       	call   1169 <_Z3eorh>
+    123c:	0f b6 c0             	movzx  eax,al
+    123f:	89 c7                	mov    edi,eax
+    1241:	e8 89 ff ff ff       	call   11cf <_Z3rtrh>
+    1246:	0f b6 c0             	movzx  eax,al
+    1249:	89 c7                	mov    edi,eax
+    124b:	e8 2f ff ff ff       	call   117f <_Z3inch>
+    1250:	0f b6 c0             	movzx  eax,al
+    1253:	89 c7                	mov    edi,eax
+    1255:	e8 0f ff ff ff       	call   1169 <_Z3eorh>
+    125a:	0f b6 c0             	movzx  eax,al
+    125d:	89 c7                	mov    edi,eax
+    125f:	e8 05 ff ff ff       	call   1169 <_Z3eorh>
+    1264:	0f b6 c0             	movzx  eax,al
+    1267:	89 c7                	mov    edi,eax
+    1269:	e8 fb fe ff ff       	call   1169 <_Z3eorh>
+    126e:	0f b6 c0             	movzx  eax,al
+    1271:	89 c7                	mov    edi,eax
+    1273:	e8 07 ff ff ff       	call   117f <_Z3inch>
+    1278:	0f b6 c0             	movzx  eax,al
+    127b:	89 c7                	mov    edi,eax
+    127d:	e8 4d ff ff ff       	call   11cf <_Z3rtrh>
+    1282:	0f b6 c0             	movzx  eax,al
+    1285:	89 c7                	mov    edi,eax
+    1287:	e8 63 ff ff ff       	call   11ef <_Z3offh>
+    128c:	0f b6 c0             	movzx  eax,al
+    128f:	89 c7                	mov    edi,eax
+    1291:	e8 39 ff ff ff       	call   11cf <_Z3rtrh>
+    1296:	0f b6 c0             	movzx  eax,al
+    1299:	89 c7                	mov    edi,eax
+    129b:	e8 df fe ff ff       	call   117f <_Z3inch>
+    12a0:	0f b6 c0             	movzx  eax,al
+    12a3:	89 c7                	mov    edi,eax
+    12a5:	e8 25 ff ff ff       	call   11cf <_Z3rtrh>
+    12aa:	0f b6 c0             	movzx  eax,al
+    12ad:	89 c7                	mov    edi,eax
+    12af:	e8 1b ff ff ff       	call   11cf <_Z3rtrh>
+    12b4:	0f b6 c0             	movzx  eax,al
+    12b7:	89 c7                	mov    edi,eax
+    12b9:	e8 ab fe ff ff       	call   1169 <_Z3eorh>
+    12be:	0f b6 c0             	movzx  eax,al
+    12c1:	89 c7                	mov    edi,eax
+    12c3:	e8 b7 fe ff ff       	call   117f <_Z3inch>
+    12c8:	0f b6 c0             	movzx  eax,al
+    12cb:	89 c7                	mov    edi,eax
+    12cd:	e8 97 fe ff ff       	call   1169 <_Z3eorh>
+    12d2:	0f b6 c0             	movzx  eax,al
+    12d5:	89 c7                	mov    edi,eax
+    12d7:	e8 8d fe ff ff       	call   1169 <_Z3eorh>
+    12dc:	0f b6 c0             	movzx  eax,al
+    12df:	89 c7                	mov    edi,eax
+    12e1:	e8 83 fe ff ff       	call   1169 <_Z3eorh>
+    12e6:	0f b6 c0             	movzx  eax,al
+    12e9:	89 c7                	mov    edi,eax
+    12eb:	e8 8f fe ff ff       	call   117f <_Z3inch>
+    12f0:	0f b6 c0             	movzx  eax,al
+    12f3:	89 c7                	mov    edi,eax
+    12f5:	e8 d5 fe ff ff       	call   11cf <_Z3rtrh>
+    12fa:	0f b6 c0             	movzx  eax,al
+    12fd:	89 c7                	mov    edi,eax
+    12ff:	e8 eb fe ff ff       	call   11ef <_Z3offh>
+    1304:	0f b6 c0             	movzx  eax,al
+    1307:	89 c7                	mov    edi,eax
+    1309:	e8 c1 fe ff ff       	call   11cf <_Z3rtrh>
+    130e:	0f b6 c0             	movzx  eax,al
+    1311:	89 c7                	mov    edi,eax
+    1313:	e8 67 fe ff ff       	call   117f <_Z3inch>
+    1318:	0f b6 c0             	movzx  eax,al
+    131b:	89 c7                	mov    edi,eax
+    131d:	e8 ad fe ff ff       	call   11cf <_Z3rtrh>
+    1322:	0f b6 c0             	movzx  eax,al
+    1325:	89 c7                	mov    edi,eax
+    1327:	e8 3d fe ff ff       	call   1169 <_Z3eorh>
+    132c:	0f b6 c0             	movzx  eax,al
+    132f:	89 c7                	mov    edi,eax
+    1331:	e8 99 fe ff ff       	call   11cf <_Z3rtrh>
+    1336:	0f b6 c0             	movzx  eax,al
+    1339:	89 c7                	mov    edi,eax
+    133b:	e8 3f fe ff ff       	call   117f <_Z3inch>
+    1340:	0f b6 c0             	movzx  eax,al
+    1343:	89 c7                	mov    edi,eax
+    1345:	e8 85 fe ff ff       	call   11cf <_Z3rtrh>
+    134a:	0f b6 c0             	movzx  eax,al
+    134d:	89 c7                	mov    edi,eax
+    134f:	e8 7b fe ff ff       	call   11cf <_Z3rtrh>
+    1354:	0f b6 c0             	movzx  eax,al
+    1357:	89 c7                	mov    edi,eax
+    1359:	e8 0b fe ff ff       	call   1169 <_Z3eorh>
+    135e:	0f b6 c0             	movzx  eax,al
+    1361:	89 c7                	mov    edi,eax
+    1363:	e8 17 fe ff ff       	call   117f <_Z3inch>
+    1368:	0f b6 c0             	movzx  eax,al
+    136b:	89 c7                	mov    edi,eax
+    136d:	e8 5d fe ff ff       	call   11cf <_Z3rtrh>
+    1372:	0f b6 c0             	movzx  eax,al
+    1375:	89 c7                	mov    edi,eax
+    1377:	e8 73 fe ff ff       	call   11ef <_Z3offh>
+    137c:	0f b6 c0             	movzx  eax,al
+    137f:	89 c7                	mov    edi,eax
+    1381:	e8 e3 fd ff ff       	call   1169 <_Z3eorh>
+    1386:	0f b6 c0             	movzx  eax,al
+    1389:	89 c7                	mov    edi,eax
+    138b:	e8 ef fd ff ff       	call   117f <_Z3inch>
+    1390:	0f b6 c0             	movzx  eax,al
+    1393:	89 c7                	mov    edi,eax
+    1395:	e8 cf fd ff ff       	call   1169 <_Z3eorh>
+    139a:	0f b6 c0             	movzx  eax,al
+    139d:	89 c7                	mov    edi,eax
+    139f:	e8 c5 fd ff ff       	call   1169 <_Z3eorh>
+    13a4:	0f b6 c0             	movzx  eax,al
+    13a7:	89 c7                	mov    edi,eax
+    13a9:	e8 21 fe ff ff       	call   11cf <_Z3rtrh>
+    13ae:	0f b6 c0             	movzx  eax,al
+    13b1:	89 c7                	mov    edi,eax
+    13b3:	e8 c7 fd ff ff       	call   117f <_Z3inch>
+    13b8:	0f b6 c0             	movzx  eax,al
+    13bb:	89 c7                	mov    edi,eax
+    13bd:	e8 2d fe ff ff       	call   11ef <_Z3offh>
+    13c2:	0f b6 c0             	movzx  eax,al
+    13c5:	89 c7                	mov    edi,eax
+    13c7:	e8 23 fe ff ff       	call   11ef <_Z3offh>
+    13cc:	0f b6 c0             	movzx  eax,al
+    13cf:	89 c7                	mov    edi,eax
+    13d1:	e8 f9 fd ff ff       	call   11cf <_Z3rtrh>
+    13d6:	0f b6 c0             	movzx  eax,al
+    13d9:	89 c7                	mov    edi,eax
+    13db:	e8 9f fd ff ff       	call   117f <_Z3inch>
+    13e0:	0f b6 c0             	movzx  eax,al
+    13e3:	89 c7                	mov    edi,eax
+    13e5:	e8 e5 fd ff ff       	call   11cf <_Z3rtrh>
+    13ea:	0f b6 c0             	movzx  eax,al
+    13ed:	89 c7                	mov    edi,eax
+    13ef:	e8 db fd ff ff       	call   11cf <_Z3rtrh>
+    13f4:	0f b6 c0             	movzx  eax,al
+    13f7:	89 c7                	mov    edi,eax
+    13f9:	e8 6b fd ff ff       	call   1169 <_Z3eorh>
+    13fe:	0f b6 c0             	movzx  eax,al
+    1401:	89 c7                	mov    edi,eax
+    1403:	e8 77 fd ff ff       	call   117f <_Z3inch>
+    1408:	0f b6 c0             	movzx  eax,al
+    140b:	89 c7                	mov    edi,eax
+    140d:	e8 57 fd ff ff       	call   1169 <_Z3eorh>
+    1412:	0f b6 c0             	movzx  eax,al
+    1415:	89 c7                	mov    edi,eax
+    1417:	e8 d3 fd ff ff       	call   11ef <_Z3offh>
+    141c:	0f b6 c0             	movzx  eax,al
+    141f:	89 c7                	mov    edi,eax
+    1421:	e8 a9 fd ff ff       	call   11cf <_Z3rtrh>
+    1426:	0f b6 c0             	movzx  eax,al
+    1429:	89 c7                	mov    edi,eax
+    142b:	e8 4f fd ff ff       	call   117f <_Z3inch>
+    1430:	0f b6 c0             	movzx  eax,al
+    1433:	89 c7                	mov    edi,eax
+    1435:	e8 b5 fd ff ff       	call   11ef <_Z3offh>
+    143a:	0f b6 c0             	movzx  eax,al
+    143d:	89 c7                	mov    edi,eax
+    143f:	e8 25 fd ff ff       	call   1169 <_Z3eorh>
+    1444:	0f b6 c0             	movzx  eax,al
+    1447:	89 c7                	mov    edi,eax
+    1449:	e8 a1 fd ff ff       	call   11ef <_Z3offh>
+    144e:	0f b6 c0             	movzx  eax,al
+    1451:	89 c7                	mov    edi,eax
+    1453:	e8 27 fd ff ff       	call   117f <_Z3inch>
+    1458:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+    145f:	eb 2d                	jmp    148e <main+0x289>
+    1461:	8b 45 fc             	mov    eax,DWORD PTR [rbp-0x4]
+    1464:	48 98                	cdqe
+    1466:	48 8d 15 a3 2b 00 00 	lea    rdx,[rip+0x2ba3]        # 4010 <flag>
+    146d:	0f b6 04 10          	movzx  eax,BYTE PTR [rax+rdx*1]
+    1471:	0f b6 c0             	movzx  eax,al
+    1474:	89 c6                	mov    esi,eax
+    1476:	48 8d 05 87 0b 00 00 	lea    rax,[rip+0xb87]        # 2004 <_IO_stdin_used+0x4>
+    147d:	48 89 c7             	mov    rdi,rax
+    1480:	b8 00 00 00 00       	mov    eax,0x0
+    1485:	e8 e6 fb ff ff       	call   1070 <printf@plt>
+    148a:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+    148e:	83 7d fc 0c          	cmp    DWORD PTR [rbp-0x4],0xc
+    1492:	7e cd                	jle    1461 <main+0x25c>
+    1494:	bf 0a 00 00 00       	mov    edi,0xa
+    1499:	e8 c2 fb ff ff       	call   1060 <putchar@plt>
+    149e:	b8 00 00 00 00       	mov    eax,0x0
+    14a3:	c9                   	leave
+    14a4:	c3                   	ret
+
+Disassembly of section .fini:
+
+00000000000014a8 <_fini>:
+    14a8:	f3 0f 1e fa          	endbr64
+    14ac:	48 83 ec 08          	sub    rsp,0x8
+    14b0:	48 83 c4 08          	add    rsp,0x8
+    14b4:	c3                   	ret

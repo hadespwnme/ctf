@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/root/imaginaryCtf/web/codenames-1/challenge/app.py", line 376, in <module>
+    socketio.run(app)
+    ~~~~~~~~~~~~^^^^^
+  File "/root/imaginaryCtf/web/codenames-1/.venv/lib/python3.13/site-packages/flask_socketio/__init__.py", line 694, in run
+    run_server()
+    ~~~~~~~~~~^^
+  File "/root/imaginaryCtf/web/codenames-1/.venv/lib/python3.13/site-packages/flask_socketio/__init__.py", line 671, in run_server
+    eventlet_socket = eventlet.listen(addresses[0][4],
+                                      addresses[0][0])
+  File "/root/imaginaryCtf/web/codenames-1/.venv/lib/python3.13/site-packages/eventlet/convenience.py", line 49, in listen
+    sock = socket.socket(family, socket.SOCK_STREAM)
+  File "/root/imaginaryCtf/web/codenames-1/.venv/lib/python3.13/site-packages/eventlet/greenio/base.py", line 135, in __init__
+    fd = _original_socket(family, *args, **kwargs)
+  File "/usr/lib/python3.13/socket.py", line 233, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
